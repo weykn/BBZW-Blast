@@ -225,7 +225,7 @@ def draw_game_over_screen():
     )
 
 def on_mouse_down(pos):
-    global dragging, dragged_block, dragged_block_index, drag_offset_x, drag_offset_y, game_over
+    global dragging, dragged_block, dragged_block_index, drag_offset_x, drag_offset_y, drag_position, game_over
     if game_over:
         restart_game()
         return
@@ -244,7 +244,7 @@ def on_mouse_down(pos):
             offset_y = BLOCK_AREA_Y
             drag_offset_x = pos[0] - offset_x
             drag_offset_y = pos[1] - offset_y
-            drag_position = pos
+            drag_position = pos  # Set drag_position immediately to the mouse position
             return
 
 def on_mouse_up(pos):
